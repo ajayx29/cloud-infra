@@ -4,7 +4,7 @@ import sys
 def retrieve_hadoop_output():
     try:
         print("Retrieving Hadoop job output...")
-        gsutil_command = ["gsutil", "cat", "gs://dataproc-staging-us-central1-40833754326-zlfuzvnm/output/*"]
+        gsutil_command = ["gsutil", "cat", "gs://dataproc-staging-us-central1-40833754326-zlfuzvnm/output1/*"]
         subprocess.run(gsutil_command, check=True)
         print("Hadoop job output retrieved successfully!")
     except subprocess.CalledProcessError:
