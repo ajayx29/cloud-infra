@@ -2,6 +2,7 @@ import subprocess
 import sys
 
 def run_hadoop_job():
+    """Triggers a Hadoop job on Dataproc."""
     try:
         print("Triggering Hadoop job...")
         hadoop_command = [
@@ -11,9 +12,11 @@ def run_hadoop_job():
         ]
         subprocess.run(hadoop_command, check=True)
         print("Hadoop job triggered successfully!")
+        return True
     except subprocess.CalledProcessError:
         print("Hadoop job execution failed!", file=sys.stderr)
-        sys.exit(1)
+        return False
 
 if __name__ == "__main__":
-    run_hadoop_job()
+    success = run_hadoop_job()
+    sys.exit(0 if success else 1)
