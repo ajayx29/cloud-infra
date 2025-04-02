@@ -7,8 +7,10 @@ def run_hadoop_job():
         print("Triggering Hadoop job...")
         hadoop_command = [
             "hadoop", "jar", "/usr/lib/hadoop/hadoop-streaming.jar",
-            "wordcount", "gs://dataproc-staging-us-central1-40833754326-zlfuzvnm/input.txt",
-            "gs://dataproc-staging-us-central1-40833754326-zlfuzvnm/output1"
+            "-file", "mapper.py", "-mapper", "python3 mapper.py",
+            "-file", "reducer.py", "-reducer", "python3 reducer.py",
+            "-input", "gs://dataproc-staging-us-central1-40833754326-zlfuzvnm/input.txt",
+            "-output", "gs://dataproc-staging-us-central1-40833754326-zlfuzvnm/output1"
         ]
         subprocess.run(hadoop_command, check=True)
         print("Hadoop job triggered successfully!")
