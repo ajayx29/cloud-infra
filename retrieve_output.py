@@ -1,6 +1,6 @@
 import subprocess
 import sys
-
+#check
 def retrieve_hadoop_output():
     """Retrieves output from the Hadoop job stored in GCS."""
     try:
