@@ -7,7 +7,7 @@ def run_hadoop_job():
         print("Triggering Hadoop Streaming job...")
         # Define the Hadoop Streaming command
         hadoop_command = [
-            "hadoop", "jar", "/usr/lib/hadoop-mapreduce/hadoop-streaming.jar",
+            "hadoop", "jar", "/usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar",
             "-file", "mapper.py", "-mapper", "python mapper.py",
             "-file", "reducer.py", "-reducer", "python reducer.py",
             "-input", "gs://dataproc-staging-us-central1-40833754326-zlfuzvnm/input.txt",
